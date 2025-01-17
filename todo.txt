@@ -1,0 +1,111 @@
+Feedback on Your Code 🎉
+
+    Good Aspects:
+        Modular Design: Your code splits the responsibilities into routes cleanly (/search and /search_results), which is a good practice.
+        Dynamic Query Building: You’ve handled filtering in the search_results function by dynamically adding conditions based on user input. This shows you're thinking about flexibility in code design.
+        Form Handling: Using both GET and POST methods effectively for different parts of the workflow (form rendering and processing).
+
+    Suggestions for Improvement:
+        Default Values in Routes: Using "none" as a placeholder for missing keyword or author values works, but you could make it more user-friendly by validating the form inputs before redirecting and displaying a helpful message if neither field is filled.
+        Error Handling: While you have an exception handler, you could improve user feedback when an error occurs by rendering an error page or redirecting to a generic error route instead of just showing "Something went wrong".
+        Code Readability: Your code is well-structured, but adding comments explaining the purpose of each block would make it easier to understand for others (or for yourself later on).
+        Template Integration: If results.html has some basic formatting, you could add enhancements like pagination for search results or filtering options directly on the results page.
+
+    Overall, your code is solid and ready for more advanced concepts! 🌟
+
+Next Task: Implementing User Authentication
+
+User authentication is a critical part of almost any web application. It will give you a chance to practice secure coding, database relationships, and integrating user-based features.
+
+Here’s the breakdown of what we’ll implement:
+
+    User Registration:
+        A route where users can register with a username, email, and password.
+        Passwords should be hashed for security (use the bcrypt library).
+
+    User Login:
+        A login route where users can authenticate.
+        You’ll use Flask’s session management to handle logged-in users.
+
+    Protected Routes:
+        Create a route that only logged-in users can access (e.g., /dashboard).
+
+    Logout:
+        Implement a logout feature to clear the session.
+
+Step 1: Set Up Your User Model
+
+Start by creating a User model in your database:
+
+from flask_sqlalchemy import SQLAlchemy
+from flask_bcrypt import Bcrypt
+
+db = SQLAlchemy()
+bcrypt = Bcrypt()
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(150), nullable=False, unique=True)
+    email = db.Column(db.String(150), nullable=False, unique=True)
+    password = db.Column(db.String(150), nullable=False)
+
+Next steps:
+
+    Create the necessary routes for registration and login.
+    Test the registration functionality first to ensure users are saved in the database.
+
+Do you want a step-by-step guide for the whole authentication flow, or would you like to explore it yourself and ask for feedback as you go? 😊
+1/2
+You said:
+When will you teach me working with git ..?
+ChatGPT said:
+ChatGPT
+
+You’re absolutely right—learning Git is essential for any developer! Since you're already building a project, it's the perfect time to integrate Git into your workflow. Here's the plan:
+Why Learn Git Now?
+
+    Version Control: Track changes to your code as you develop new features like search, authentication, or anything else.
+    Collaboration: Get familiar with tools used in team-based development (even if you're working solo for now).
+    GitHub Presence: Start uploading your projects to GitHub to build a professional portfolio.
+
+What We’ll Cover:
+Step 1: Basic Git Workflow
+
+    Initialize a repository.
+    Track files, commit changes, and understand .gitignore.
+    Push your local repository to GitHub.
+
+Step 2: Branching
+
+    Work with branches for different features (e.g., auth-feature or search-feature).
+    Merge branches safely into your main branch.
+
+Step 3: GitHub Collaboration
+
+    Learn how to create a repository on GitHub and push code there.
+    Work with Pull Requests (PRs) to simulate team workflows.
+
+Step 4: Advanced Git
+
+    Undo changes, resolve merge conflicts, and manage a clean commit history.
+
+Task: Setting Up Git for Your Current Project
+
+Let’s start with the basics:
+
+    Install Git: Confirm Git is installed on your system (git --version).
+    Initialize Your Repo:
+
+git init
+git add .
+git commit -m "Initial commit: Flask library app"
+
+Create a GitHub Repository:
+
+    Go to GitHub and create a new repo.
+    Follow the instructions to link your local repo to GitHub:
+
+git remote add origin https://github.com/your-username/your-repo-name.git
+git branch -M main
+git push -u origin main
+
